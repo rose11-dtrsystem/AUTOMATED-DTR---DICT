@@ -1,0 +1,24 @@
+You should input the correct coordinates for 'DICT RO 1' if they're not set.
+
+
+
+Don't forget to add the updated database 
+
+
+MOST IMPORTANTLY !!!!!
+
+To access admin panel 
+
+username: dictro1admin
+pass: dictro1
+
+
+
+
+
+
+
+
+
+
+-KML

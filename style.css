@@ -1,0 +1,1479 @@
+/*-------------------------
+	Import Fonts
+--------------------------*/
+@import url("https://fonts.googleapis.com/css?family=DM+Sans");
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("images/DICT-bg.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+/*-------------------------
+	Header
+--------------------------*/
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title img {
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logos img {
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+#bagongfil {
+  max-height: 70px;
+  margin-right: 10px;
+}
+
+h2 {
+  margin: 0;
+}
+
+/*-------------------------
+	Home Page
+--------------------------*/
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.user h4 {
+  font-size: 14px;
+  color: #1a9035;
+  margin-top: -20px;
+}
+
+.checkLoc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.dtr-btn {
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.btn-green {
+  background-color: #28a745;
+}
+
+.btn-green:hover {
+  background-color: #1a9035;
+}
+
+.dtr-btn.btn-green:disabled {
+  cursor: not-allowed;
+  opacity: 0.6; /* Optional: Makes the button look disabled */
+}
+
+.btn-red {
+  background-color: #dc3545;
+}
+
+.btn-red:hover {
+  background-color: #bb1e2e;
+}
+
+.dtr-btn.btn-red:disabled {
+  cursor: not-allowed;
+  opacity: 0.6; /* Optional: Makes the button look disabled */
+}
+
+.blue {
+  background: #001e58;
+}
+
+.circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 1px 1px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Adjust size as needed */
+  height: 200px; /* Adjust size as needed */
+  font-size: 2rem; /* Adjust icon size */
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+.dtr-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed; /* Ensures columns are evenly sized */
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
+.dtr-table th,
+.dtr-table td {
+  word-wrap: break-word; /* Prevents content from overflowing */
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.dtr-table th {
+  background-color: #f2f2f2;
+}
+
+#location-info {
+  display: none;
+}
+
+#map {
+  height: 150px;
+  width: 100%;
+  margin-top: 20px;
+  display: none; /* Hide the map initially */
+}
+
+#locationModal {
+  display: none;
+}
+
+#modalMessage {
+  color: black;
+}
+
+/* Style for the burger menu icon */
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.burger-menu {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+
+.menu-links {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-links a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Show the menu when the burger menu is clicked */
+.menu-container.active .menu-links {
+  display: block;
+}
+
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination ul {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.pagination li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #001e58; /* Blue color for links */
+  padding: 8px 12px;
+  border: 1px solid #001e58;
+  border-radius: 4px;
+}
+
+.pagination a.active {
+  background-color: #001e58;
+  color: white;
+}
+
+.pagination a:hover {
+  background-color: #01153c; /* Darker blue on hover */
+  border-color: #01153c;
+  color: white;
+}
+
+.back-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sign-out {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #ff4646;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/*-------------------------
+	Form Styles
+--------------------------*/
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* Change to column layout */
+  margin-bottom: 10px;
+}
+
+.form-guide {
+  font-style: italic;
+  color: #555;
+  /* Adjust color if needed */
+  font-size: 12px;
+}
+
+.rad-form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  width: 220px;
+  margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #001e58;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+input[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #001e58;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #133477;
+}
+
+input[type="submit"].disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+input[type="submit"].disabled:hover {
+  background-color: #d3d3d3;
+}
+
+p {
+  margin-top: 10px;
+  color: green;
+}
+
+.to-input-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.to-input-container input {
+  width: 40px;
+  /* Adjust width as needed */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.to-input-container span {
+  margin: 0 5px;
+  /* Space around hyphens */
+  font-weight: bold;
+}
+
+.form-guide {
+  font-style: italic;
+  color: #555;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.showPw {
+  color: #000000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+#travelOrderButton,
+#backButton {
+  background-color: yellow;
+  color: black;
+  /* Black text for better readability on yellow background */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  /* Adjust margin as needed */
+  width: 100%;
+}
+
+#travelOrderButton:hover,
+#backButton:hover {
+  background-color: #f1c40f;
+  /* A slightly darker yellow for hover effect */
+}
+
+input#toStartDate,
+input#toEndDate,
+input#offsetsStartDate,
+input#offsetsEndDate,
+input#wfhStartDate,
+input#wfhEndDate,
+input#wsStartDate,
+input#wsEndDate,
+input#obStartDate,
+input#obEndDate {
+  display: inline-block;
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+}
+
+.input-icon input {
+  padding-left: 30px; /* Adjust this value based on icon size */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*-------------------------
+	Modal Styles
+--------------------------*/
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Space between the animations */
+}
+
+.checkmark,
+.crossmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+}
+
+.checkmark__circle,
+.crossmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  stroke: #fff;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill-success 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.crossmark {
+  stroke: #fff;
+  box-shadow: inset 0px 0px 0px #d9534f;
+  animation: fill-failure 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check,
+.crossmark__cross {
+  stroke-width: 2;
+  /* Ensure path stroke width matches circle */
+  fill: none;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill-success {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+
+@keyframes fill-failure {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #d9534f;
+  }
+}
+
+.checkmark__circle {
+  stroke: #7ac142;
+}
+
+.crossmark__circle {
+  stroke: #d9534f;
+}
+
+.checkmark__check {
+  stroke: #ffffff;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+.crossmark__cross {
+  stroke: #ffffff;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  /* Higher than the overlay */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dark overlay */
+}
+
+.lds-ripple,
+.lds-ripple div {
+  box-sizing: border-box;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid currentColor;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+.modal-content button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#confirmBtn {
+  background-color: #4caf50;
+  color: white;
+}
+
+#confirmBtn:hover {
+  background-color: #45a049;
+}
+
+#cancelBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+#cancelBtn:hover {
+  background-color: #da190b;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  /* Space between buttons */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/*-------------------------
+	Responsive Styles
+--------------------------*/
+
+/* For mobile devices (max-width: 600px) */
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%; /* Full height of the viewport */
+    margin: 0;
+    padding: 0;
+    position: fixed; /* Prevent any movement */
+    width: 100%; /* Full width of the viewport */
+  }
+
+  body {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    background-size: cover;
+    background-position: center; /* Center the background image */
+  }
+
+  .container {
+    width: 100%; /* Full width on mobile */
+    max-width: 90%; /* Slight padding from edges */
+    padding: 10px; /* Reduced padding */
+    box-shadow: none; /* Remove box-shadow for simplicity */
+    margin: 0 auto; /* Center the form horizontally */
+    max-height: 100%; /* Ensure the container does not exceed viewport height */
+    overflow: hidden; /* Prevent any internal scrolling */
+  }
+
+  .title img,
+  .logos img {
+    max-height: 50px; /* Smaller logo size */
+    margin-right: 0;
+    margin-bottom: 5px; /* Add space below the logos */
+  }
+
+  .form-group label {
+    font-size: 14px; /* Slightly smaller font size */
+    width: 100%; /* Full width labels */
+    margin-right: 0;
+    margin-bottom: 5px; /* Space below labels */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%; /* Full width input fields */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    font-size: 14px; /* Adjust font size for better fit */
+  }
+
+  input[type="submit"] {
+    width: 100%; /* Full width submit button */
+    margin-top: 10px; /* Reduced margin for better fit */
+    padding: 10px; /* Reduced padding for smaller devices */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Adjust other form elements as necessary */
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+/* Additional media query for iPhone SE (320px width) */
+@media (max-width: 375px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+
+  .container {
+    padding: 10px; /* Slight padding */
+    max-width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+    height: auto; /* Let height adjust automatically */
+    display: block; /* Ensure block display */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+
+  .title img,
+  .logos img {
+    max-height: 50px; /* Smaller logo size */
+    margin-bottom: 5px;
+  }
+
+  .form-group label {
+    font-size: 12px; /* Smaller font size */
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%; /* Full width input fields */
+    box-sizing: border-box;
+    font-size: 12px; /* Adjust font size */
+    padding: 8px; /* Reduce padding */
+  }
+
+  input[type="submit"] {
+    width: 100%; /* Full width submit button */
+    margin-top: 5px; /* Reduce margin */
+    padding: 8px; /* Reduce padding */
+    font-size: 12px; /* Adjust font size */
+  }
+
+  .btn {
+    width: 100%; /* Full width */
+    font-size: 12px; /* Smaller font size */
+    padding: 8px; /* Reduce padding */
+    margin-top: 5px; /* Reduce margin */
+  }
+
+  .form-group {
+    margin-bottom: 10px; /* Reduce margin */
+  }
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+  padding-right: 25px;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+/* Ensure smaller screens (e.g., iPhone SE) are addressed */
+@media (max-width: 320px) {
+  .container {
+    padding: 5px; /* Further reduce padding */
+  }
+
+  input[type="submit"],
+  .btn {
+    font-size: 10px; /* Further reduce font size */
+    padding: 6px; /* Further reduce padding */
+  }
+
+  .form-group label {
+    font-size: 10px; /* Further reduce label font size */
+  }
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+  padding-right: 25px;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+/* For tablets and mid-sized devices (min-width: 601px and max-width: 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    max-width: 400px; /* Downscale the container */
+    padding: 20px;
+    /* Adjust these values as needed */
+    max-height: 90vh; /* Limit container height to 80% of viewport height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  }
+
+  .title img,
+  .logos img {
+    max-height: 50px; /* Larger logo size */
+  }
+
+  .form-group label {
+    font-size: 16px; /* Larger font size */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
+    font-size: 16px; /* Larger input font size */
+    padding: 10px; /* Increase padding */
+  }
+
+  input[type="submit"],
+  .btn {
+    font-size: 16px; /* Larger button font size */
+    padding: 10px 15px; /* Increase padding */
+  }
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+  padding-right: 25px;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+/* For iPad Pro 1024x1366 portrait orientation */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+
+  .container {
+    max-width: 60%; /* Slightly narrower to prevent stretching */
+    padding: 20px; /* Comfortable padding */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #ffffff; /* Background color to highlight content */
+  }
+
+  .title img,
+  .logos img {
+    max-height: 50px; /* Medium logo size for better visibility */
+  }
+
+  .form-group label {
+    font-size: 18px; /* Larger font size for readability */
+    margin-bottom: 10px; /* Adequate spacing */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
+    font-size: 18px; /* Larger input font size for easy interaction */
+    padding: 12px; /* Increase padding for better touch experience */
+    box-sizing: border-box; /* Include padding in width */
+  }
+
+  input[type="submit"],
+  .btn {
+    font-size: 18px; /* Larger button font size */
+    padding: 12px 20px; /* Increase padding for a comfortable touch area */
+    margin-top: 15px; /* Adequate margin for spacing */
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Increased margin for clarity */
+  }
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+  padding-right: 25px;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 400px; /* Downscale the container */
+    padding: 20px;
+    /* Adjust these values as needed */
+    max-height: 90vh; /* Limit container height to 80% of viewport height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  .title img {
+    max-height: 40px; /* Downscale the logo/image */
+  }
+
+  .form-group label {
+    width: 180px; /* Adjust the label width */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
+    padding: 8px; /* Decrease padding for inputs */
+  }
+
+  input[type="submit"] {
+    padding: 8px; /* Decrease padding for the submit button */
+  }
+
+  .animation-container {
+    gap: 15px; /* Adjust the space between animations */
+  }
+}
+
+.input-icon input {
+  padding-left: 25px; /* Adjust padding for smaller screens */
+  font-size: 0.9em;
+  padding-right: 25px;
+}
+
+.input-icon i {
+  left: 8px; /* Adjust icon position for smaller screens */
+}
+
+/*-------------------------
+	The Clock
+--------------------------*/
+
+#clock:after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 20px;
+  border-radius: 100%;
+  left: 50%;
+  margin-left: -200px;
+  bottom: 2px;
+  z-index: -1;
+}
+
+#clock .display {
+  text-align: center;
+  padding: 40px 20px 20px;
+  border-radius: 6px;
+  position: relative;
+  height: 54px;
+}
+
+/*-------------------------
+	Light color theme
+--------------------------*/
+
+#clock.light {
+  background-color: #f3f3f3;
+  color: #272e38;
+}
+
+#clock.light:after {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#clock.light .digits div span {
+  background-color: #272e38;
+  border-color: #272e38;
+}
+
+#clock.light .digits div.dots:before,
+#clock.light .digits div.dots:after {
+  background-color: #272e38;
+}
+
+#clock.light .display {
+  background-color: #ffffff;
+}
+
+/*-------------------------
+	The Digits
+--------------------------*/
+
+#clock .digits div {
+  text-align: left;
+  position: relative;
+  width: 28px;
+  height: 50px;
+  display: inline-block;
+  margin: 0 4px;
+}
+
+#clock .digits div span {
+  opacity: 0;
+  position: absolute;
+
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+}
+
+#clock .digits div span:before,
+#clock .digits div span:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+}
+
+#clock .digits .d1 {
+  height: 5px;
+  width: 16px;
+  top: 0;
+  left: 6px;
+}
+#clock .digits .d1:before {
+  border-width: 0 5px 5px 0;
+  border-right-color: inherit;
+  left: -5px;
+}
+#clock .digits .d1:after {
+  border-width: 0 0 5px 5px;
+  border-left-color: inherit;
+  right: -5px;
+}
+
+#clock .digits .d2 {
+  height: 5px;
+  width: 16px;
+  top: 24px;
+  left: 6px;
+}
+#clock .digits .d2:before {
+  border-width: 3px 4px 2px;
+  border-right-color: inherit;
+  left: -8px;
+}
+#clock .digits .d2:after {
+  border-width: 3px 4px 2px;
+  border-left-color: inherit;
+  right: -8px;
+}
+
+#clock .digits .d3 {
+  height: 5px;
+  width: 16px;
+  top: 48px;
+  left: 6px;
+}
+#clock .digits .d3:before {
+  border-width: 5px 5px 0 0;
+  border-right-color: inherit;
+  left: -5px;
+}
+#clock .digits .d3:after {
+  border-width: 5px 0 0 5px;
+  border-left-color: inherit;
+  right: -5px;
+}
+
+#clock .digits .d4 {
+  width: 5px;
+  height: 14px;
+  top: 7px;
+  left: 0;
+}
+#clock .digits .d4:before {
+  border-width: 0 5px 5px 0;
+  border-bottom-color: inherit;
+  top: -5px;
+}
+#clock .digits .d4:after {
+  border-width: 0 0 5px 5px;
+  border-left-color: inherit;
+  bottom: -5px;
+}
+
+#clock .digits .d5 {
+  width: 5px;
+  height: 14px;
+  top: 7px;
+  right: 0;
+}
+#clock .digits .d5:before {
+  border-width: 0 0 5px 5px;
+  border-bottom-color: inherit;
+  top: -5px;
+}
+#clock .digits .d5:after {
+  border-width: 5px 0 0 5px;
+  border-top-color: inherit;
+  bottom: -5px;
+}
+
+#clock .digits .d6 {
+  width: 5px;
+  height: 14px;
+  top: 32px;
+  left: 0;
+}
+#clock .digits .d6:before {
+  border-width: 0 5px 5px 0;
+  border-bottom-color: inherit;
+  top: -5px;
+}
+#clock .digits .d6:after {
+  border-width: 0 0 5px 5px;
+  border-left-color: inherit;
+  bottom: -5px;
+}
+
+#clock .digits .d7 {
+  width: 5px;
+  height: 14px;
+  top: 32px;
+  right: 0;
+}
+#clock .digits .d7:before {
+  border-width: 0 0 5px 5px;
+  border-bottom-color: inherit;
+  top: -5px;
+}
+#clock .digits .d7:after {
+  border-width: 5px 0 0 5px;
+  border-top-color: inherit;
+  bottom: -5px;
+}
+
+/* 1 */
+
+#clock .digits div.one .d5,
+#clock .digits div.one .d7 {
+  opacity: 1;
+}
+
+/* 2 */
+
+#clock .digits div.two .d1,
+#clock .digits div.two .d5,
+#clock .digits div.two .d2,
+#clock .digits div.two .d6,
+#clock .digits div.two .d3 {
+  opacity: 1;
+}
+
+/* 3 */
+
+#clock .digits div.three .d1,
+#clock .digits div.three .d5,
+#clock .digits div.three .d2,
+#clock .digits div.three .d7,
+#clock .digits div.three .d3 {
+  opacity: 1;
+}
+
+/* 4 */
+
+#clock .digits div.four .d5,
+#clock .digits div.four .d2,
+#clock .digits div.four .d4,
+#clock .digits div.four .d7 {
+  opacity: 1;
+}
+
+/* 5 */
+
+#clock .digits div.five .d1,
+#clock .digits div.five .d2,
+#clock .digits div.five .d4,
+#clock .digits div.five .d3,
+#clock .digits div.five .d7 {
+  opacity: 1;
+}
+
+/* 6 */
+
+#clock .digits div.six .d1,
+#clock .digits div.six .d2,
+#clock .digits div.six .d4,
+#clock .digits div.six .d3,
+#clock .digits div.six .d6,
+#clock .digits div.six .d7 {
+  opacity: 1;
+}
+
+/* 7 */
+
+#clock .digits div.seven .d1,
+#clock .digits div.seven .d5,
+#clock .digits div.seven .d7 {
+  opacity: 1;
+}
+
+/* 8 */
+
+#clock .digits div.eight .d1,
+#clock .digits div.eight .d2,
+#clock .digits div.eight .d3,
+#clock .digits div.eight .d4,
+#clock .digits div.eight .d5,
+#clock .digits div.eight .d6,
+#clock .digits div.eight .d7 {
+  opacity: 1;
+}
+
+/* 9 */
+
+#clock .digits div.nine .d1,
+#clock .digits div.nine .d2,
+#clock .digits div.nine .d3,
+#clock .digits div.nine .d4,
+#clock .digits div.nine .d5,
+#clock .digits div.nine .d7 {
+  opacity: 1;
+}
+
+/* 0 */
+
+#clock .digits div.zero .d1,
+#clock .digits div.zero .d3,
+#clock .digits div.zero .d4,
+#clock .digits div.zero .d5,
+#clock .digits div.zero .d6,
+#clock .digits div.zero .d7 {
+  opacity: 1;
+}
+
+/* The dots */
+
+#clock .digits div.dots {
+  width: 5px;
+}
+
+#clock .digits div.dots:before,
+#clock .digits div.dots:after {
+  width: 5px;
+  height: 5px;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+}
+
+#clock .digits div.dots:after {
+  top: 34px;
+}
+
+/*-------------------------
+	Weekdays
+--------------------------*/
+
+#clock .weekdays {
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  text-align: center;
+}
+
+#clock .weekdays span {
+  opacity: 0.2;
+  padding: 0 10px;
+}
+
+#clock .weekdays span.active {
+  opacity: 1;
+}
+
+/*-------------------------
+		AM/PM
+--------------------------*/
+
+#clock .ampm {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 12px;
+}
